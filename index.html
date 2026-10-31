@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reading room · The Holy Earth Foundation</title>
+<meta name="description" content="The Holy Earth Foundation's public reading room: the proposals, procedures and decks that are ready for visitors, and how members read the rest.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="assets/door.svg" type="image/svg+xml">
+<style>
+  :root {
+    --amber: #d97706;     /* the foundation's primary */
+    --deep: #6b4f1d;      /* headings */
+    --mid: #b45309;       /* links: 5:1 on paper */
+    --tint: #fef3c7;      /* the doorway's wash */
+    --paper: #ffffff;
+    --ink: #2b2117;
+    --muted: #6b5d4f;
+    --line: #ead9b8;
+    --shut: #8a7a66;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #12201a;   /* the forest before dawn */
+      --ink: #f3ead8;
+      --muted: #c9bba3;
+      --deep: #fcd34d;
+      --mid: #fbbf24;
+      --tint: #1d2e25;
+      --line: #2f4537;
+      --shut: #a8998a;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+    font-size: 1.125rem; line-height: 1.65;
+  }
+  a { color: var(--mid); text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
+  a:hover { text-decoration-thickness: 2px; }
+  a:focus-visible, summary:focus-visible { outline: 3px solid var(--amber); outline-offset: 3px; border-radius: 2px; }
+  .skip { position: absolute; left: -999px; top: 0; }
+  .skip:focus { left: 16px; top: 12px; background: var(--paper); padding: 6px 10px; z-index: 2; }
+  .wrap { max-width: 44rem; margin: 0 auto; padding: 0 16px; }
+
+  /* the doorway: the one memorable thing */
+  .doorway { background: var(--tint); border-bottom: 1px solid var(--line); }
+  .doorway .wrap { display: grid; grid-template-columns: 7.5rem 1fr; gap: 1.75rem; align-items: end; padding-top: 3.25rem; padding-bottom: 2.5rem; }
+  .arch { width: 7.5rem; height: 9.5rem; display: block; }
+  .arch .frame { fill: none; stroke: var(--amber); stroke-width: 5; stroke-linecap: round; }
+  .arch .rays { stroke: var(--deep); stroke-width: 2.5; stroke-linecap: round; }
+  .arch .heart { fill: var(--amber); }
+  .arch text { font: 600 11px/1 Georgia, serif; fill: var(--deep); text-anchor: middle; }
+  .arch .light { fill: var(--amber); opacity: 0.12; }
+  h1 { font-size: clamp(2.2rem, 7vw, 3.1rem); line-height: 1.05; letter-spacing: -0.01em; margin: 0; color: var(--deep); font-weight: 600; }
+  .org { margin: 0 0 0.4rem; color: var(--muted); font-size: 1rem; }
+  .lede { margin: 0.9rem 0 0; max-width: 34rem; }
+  .count { margin: 1rem 0 0; font-size: 1rem; color: var(--muted); }
+  .count strong { color: var(--ink); font-weight: 600; }
+
+  main { padding: 1rem 0 3rem; }
+  h2 { font-size: 1.5rem; line-height: 1.2; margin: 2.75rem 0 0.35rem; color: var(--deep); font-weight: 600; }
+  h2 + p { margin-top: 0; color: var(--muted); }
+
+  /* a shelf: one row per piece, saying where it can be read */
+  .shelf { list-style: none; margin: 1rem 0 0; padding: 0; border-top: 1px solid var(--line); }
+  .shelf li { display: grid; grid-template-columns: 1fr auto; gap: 0.25rem 1rem; padding: 0.8rem 0; border-bottom: 1px solid var(--line); }
+  .shelf .what { font-weight: 600; }
+  .shelf .note { grid-column: 1 / -1; font-size: 0.98rem; color: var(--muted); }
+  .where { font-size: 0.95rem; white-space: nowrap; align-self: start; }
+  .where.shut { color: var(--shut); }
+  .where.open::before { content: ""; display: inline-block; width: 0.55em; height: 0.55em; border-radius: 50%; background: var(--amber); margin-right: 0.45em; vertical-align: 0.08em; }
+  .extra { margin-top: 0.6rem; font-size: 1rem; color: var(--muted); }
+
+  ol.steps { padding-left: 1.4rem; margin: 1rem 0 0; }
+  ol.steps li { margin: 0 0 0.6rem; padding-left: 0.25rem; }
+  .elsewhere { margin: 1rem 0 0; padding: 0; list-style: none; }
+  .elsewhere li { margin: 0 0 0.75rem; }
+  .elsewhere span { display: block; font-size: 1rem; color: var(--muted); }
+
+  footer { border-top: 1px solid var(--line); padding: 1.5rem 0 2.5rem; font-size: 0.95rem; color: var(--muted); }
+  footer p { margin: 0 0 0.4rem; }
+
+  @media (max-width: 34rem) {
+    .doorway .wrap { grid-template-columns: 1fr; gap: 1rem; padding-top: 2rem; }
+    .arch { width: 5rem; height: 6.4rem; }
+    .shelf li { grid-template-columns: 1fr; }
+    .where { white-space: normal; }
+  }
+  @media print { .doorway { background: none; } .skip { display: none; } }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to the shelves</a>
+
+<header class="doorway">
+  <div class="wrap">
+    <svg class="arch" viewBox="0 0 120 152" aria-hidden="true" focusable="false">
+      <path class="light" d="M14 148V64a46 46 0 0 1 92 0v84z"/>
+      <path class="frame" d="M14 148V64a46 46 0 0 1 92 0v84"/>
+      <path class="rays" d="M60 46v50M35 71h50"/>
+      <circle class="heart" cx="60" cy="71" r="8"/>
+      <text x="60" y="40">N</text><text x="60" y="110">S</text><text x="27" y="75">W</text><text x="93" y="75">E</text>
+    </svg>
+    <div>
+      <p class="org"><a href="https://theholyearthfoundation.github.io">The Holy Earth Foundation</a></p>
+      <h1>The reading room</h1>
+      <p class="lede">Proposals, procedures and decks the foundation is ready to show. The rest waits in the members' room until an officer opens it here, one page at a time.</p>
+      <p class="count" id="count" aria-live="polite">Nothing has been opened to visitors yet.</p>
+    </div>
+  </div>
+</header>
+
+<main id="main" class="wrap">
+
+  <section aria-labelledby="h-decks">
+    <h2 id="h-decks">Decks</h2>
+    <p>Walk-throughs, one idea per slide.</p>
+    <ul class="shelf" id="shelf-decks">
+      <li data-paths="decks/home-base-for-kenney.marp.html decks/home-base-for-kenney.marp.pdf">
+        <span class="what">Home base, for Kenney</span>
+        <span class="where shut">In the members' room</span>
+        <span class="note">The foundation's rooms, the drafting desks, bringing your helper, and the road ahead.</span>
+      </li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="h-procedures">
+    <h2 id="h-procedures">Procedures</h2>
+    <p>How an approved thing is done, step by step. Each one is a draft until its version is tagged.</p>
+    <ul class="shelf" id="shelf-procedures">
+      <li data-paths="procedures/pdf/OPS/SOP-OPS-001-how-a-change-travels.pdf procedures/OPS/SOP-OPS-001-how-a-change-travels.md"><span class="what">How a change travels</span><span class="where shut">In the members' room</span><span class="note">SOP-OPS-001: rehearsal, Promote, the live branch, the public twin.</span></li>
+      <li data-paths="procedures/pdf/OPS/SOP-OPS-002-pull-requests-and-promotes.pdf procedures/OPS/SOP-OPS-002-pull-requests-and-promotes.md"><span class="what">Pull requests and Promotes</span><span class="where shut">In the members' room</span><span class="note">SOP-OPS-002: who opens, who merges, and why history is kept whole.</span></li>
+      <li data-paths="procedures/pdf/IT/SOP-IT-001-vpn-dns-resolver-stalls.pdf procedures/IT/SOP-IT-001-vpn-dns-resolver-stalls.md"><span class="what">VPN and DNS resolver stalls</span><span class="where shut">In the members' room</span><span class="note">SOP-IT-001: how to tell, how to check, how to fix.</span></li>
+      <li data-paths="procedures/pdf/IT/SOP-IT-002-reading-room-and-helper-access.pdf procedures/IT/SOP-IT-002-reading-room-and-helper-access.md"><span class="what">Reading room and helper access</span><span class="where shut">In the members' room</span><span class="note">SOP-IT-002: browser first, a token only if needed. How this room works.</span></li>
+      <li data-paths="procedures/pdf/IT/SOP-IT-003-observer-dashboards-local-by-default.pdf procedures/IT/SOP-IT-003-observer-dashboards-local-by-default.md"><span class="what">Observer dashboards, local by default</span><span class="where shut">In the members' room</span><span class="note">SOP-IT-003: remote access only on purpose.</span></li>
+      <li data-paths="procedures/pdf/GOV/SOP-GOV-001-board-reading-room-membership.pdf procedures/GOV/SOP-GOV-001-board-reading-room-membership.md"><span class="what">Board reading room membership</span><span class="where shut">In the members' room</span><span class="note">SOP-GOV-001: a closed team with Read, named by the officers.</span></li>
+    </ul>
+    <p class="extra">Procedures marked public also appear in the foundation's <a href="https://github.com/theholyearthfoundation/ops-standard-operating-procedures-public">procedures twin on GitHub</a>.</p>
+  </section>
+
+  <section aria-labelledby="h-proposals">
+    <h2 id="h-proposals">Proposals</h2>
+    <p>A proposal asks for a decision. Nothing happens because one exists.</p>
+    <ul class="shelf" id="shelf-proposals">
+      <li data-paths="proposals/pdf/000-start-here.pdf proposals/000-start-here/README.md"><span class="what">Start here</span><span class="where shut">In the members' room</span><span class="note">How a proposal reads, how to answer, how to bring your helper.</span></li>
+      <li data-paths="proposals/pdf/012-your-reading-room-and-your-helper.pdf proposals/012-your-reading-room-and-your-helper/README.md"><span class="what">Your reading room, and how your helper joins you</span><span class="where shut">In the members' room</span><span class="note">The door, what is asked of you, what a token is and is not.</span></li>
+      <li data-paths="proposals/pdf/013-how-a-change-travels.pdf proposals/013-how-a-change-travels/README.md"><span class="what">Procedures beside proposals</span><span class="where shut">In the members' room</span><span class="note">One procedures repository per organisation, approved versions as tags.</span></li>
+    </ul>
+    <p class="extra">Drafts the lab has already made public are in its <a href="https://github.com/drasticstatic/proposals-thef-public-preview">public proposals preview</a>.</p>
+  </section>
+
+  <section aria-labelledby="h-more">
+    <h2 id="h-more">Also opened here</h2>
+    <p>Pages the officers have opened that are not on the shelves above.</p>
+    <ul class="shelf" id="shelf-more"><li><span class="what">None yet</span></li></ul>
+  </section>
+
+  <section aria-labelledby="h-access">
+    <h2 id="h-access">Read the members' room</h2>
+    <p>The members' room is a private repository on GitHub. Members of the foundation read it in a browser.</p>
+    <ol class="steps">
+      <li>Make a GitHub account if you do not have one, and turn on two-factor sign-in.</li>
+      <li>Send your GitHub username to the foundation's steward or to Kenney, wherever you already talk with the foundation. Nothing else is needed: never send a password or a code.</li>
+      <li>Accept the invitation GitHub emails you, then open <a href="https://github.com/theholyearthfoundation/reading-room">the members' room</a>. If it shows "404", your account is not in yet; tell the steward which username you are signed in as.</li>
+    </ol>
+    <p class="extra">Whether to add someone is the officers' decision. Not a member? Start with the foundation at <a href="https://www.iamoneself.com">iamoneself.com</a>.</p>
+  </section>
+
+  <section aria-labelledby="h-elsewhere">
+    <h2 id="h-elsewhere">Elsewhere</h2>
+    <ul class="elsewhere">
+      <li><a href="https://theholyearthfoundation.github.io">The foundation's home page</a><span>Its projects, and where each one lives.</span></li>
+      <li><a href="https://theholyearthfoundation.github.io/changelog-astro-public/changelog">The changelog</a><span>A plain-language record of what has shipped.</span></li>
+      <li><a href="https://github.com/theholyearthfoundation/reading-room-public">This room's repository</a><span>Every page here, as files. It is filled by an allowlist sync and never edited by hand.</span></li>
+    </ul>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>The Holy Earth Foundation's public reading room. Pages arrive here only from the members' room, through a list an officer keeps.</p>
+    <p id="stamp"></p>
+  </div>
+</footer>
+
+<script>
+  // room-manifest.json is written by the sync (scripts/sync-allowlist.sh). Without it, every shelf says
+  // "In the members' room", which is the truth until an officer opens a page.
+  (function () {
+    var REPO = "https://github.com/theholyearthfoundation/reading-room-public/blob/main/";
+    function href(p) { return /\.(md)$/i.test(p) ? REPO + p : p; }
+    function kind(p) {
+      if (/\.pdf$/i.test(p)) return "PDF";
+      if (/\.html$/i.test(p)) return "Slides";
+      if (/\.md$/i.test(p)) return "Page";
+      return "File";
+    }
+    function label(p) { var k = kind(p); return "Read the " + (k === "PDF" ? k : k.toLowerCase()); }
+    function nice(p) {
+      var base = p.split("/").pop().replace(/\.(md|pdf|html)$/i, "").replace(/\.marp$/, "");
+      if (/^readme$/i.test(base)) base = p.split("/").slice(-2, -1)[0] || base;
+      return base.replace(/^(\d{3})-/, "$1 ").replace(/^SOP-([A-Z]+)-(\d+)-/, "SOP-$1-$2 ").replace(/-/g, " ");
+    }
+    fetch("room-manifest.json", { cache: "no-store" })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (m) {
+        if (!m || !m.files || !m.files.length) return;
+        var have = {}, used = {};
+        m.files.forEach(function (f) { have[f] = true; });
+        document.querySelectorAll("li[data-paths]").forEach(function (li) {
+          var open = li.getAttribute("data-paths").split(" ").filter(function (p) { return have[p]; });
+          if (!open.length) return;
+          var where = li.querySelector(".where");
+          where.className = "where open";
+          where.textContent = "";
+          open.forEach(function (p, i) {
+            used[p] = true;
+            var a = document.createElement("a");
+            a.href = href(p); a.textContent = label(p);
+            if (i) where.appendChild(document.createTextNode(" or "));
+            where.appendChild(a);
+          });
+        });
+        var rest = m.files.filter(function (f) { return !used[f] && !/\.(svg|png|jpe?g|gif|webp)$/i.test(f); });
+        if (rest.length) {
+          var ul = document.getElementById("shelf-more"); ul.textContent = "";
+          rest.forEach(function (p) {
+            var li = document.createElement("li");
+            var w = document.createElement("span"); w.className = "what"; w.textContent = nice(p);
+            var s = document.createElement("span"); s.className = "where open";
+            var a = document.createElement("a"); a.href = href(p); a.textContent = label(p);
+            s.appendChild(a); li.appendChild(w); li.appendChild(s); ul.appendChild(li);
+          });
+        }
+        var n = Object.keys(used).length + rest.length;
+        document.getElementById("count").innerHTML = "<strong>" + n + "</strong> " + (n === 1 ? "file is" : "files are") + " open to visitors.";
+        if (m.generated) document.getElementById("stamp").textContent = "Last filled " + m.generated.replace("T", " at ").replace("Z", " UTC") + ".";
+      })
+      .catch(function () { /* no manifest yet: the static page is already true */ });
+  })();
+</script>
+</body>
+</html>
