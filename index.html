@@ -59,6 +59,11 @@
   .lede { margin: 0.9rem 0 0; max-width: 34rem; }
   .count { margin: 1rem 0 0; font-size: 1rem; color: var(--muted); }
   .count strong { color: var(--ink); font-weight: 600; }
+  /* the access point: the members' room, one click from the top */
+  .members { margin: 1.1rem 0 0; font-size: 1rem; color: var(--muted); }
+  .members .door { display: inline-flex; align-items: center; gap: 0.45em; padding: 0.45rem 0.9rem; border: 1.5px solid var(--amber); border-radius: 999px; color: var(--deep); font-weight: 600; text-decoration: none; margin-right: 0.5rem; }
+  .members .door:hover { background: var(--paper); }
+  .members span { display: inline-block; margin-top: 0.4rem; }
 
   main { padding: 1rem 0 3rem; }
   h2 { font-size: 1.5rem; line-height: 1.2; margin: 2.75rem 0 0.35rem; color: var(--deep); font-weight: 600; }
@@ -109,6 +114,7 @@
       <h1>The reading room</h1>
       <p class="lede">Proposals, procedures and decks the foundation is ready to show. The rest waits in the members' room until an officer opens it here, one page at a time.</p>
       <p class="count" id="count" aria-live="polite">Nothing has been opened to visitors yet.</p>
+      <p class="members"><a class="door" href="https://github.com/theholyearthfoundation/reading-room"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M13 4h3a2 2 0 0 1 2 2v14"/><path d="M2 20h3"/><path d="M13 20h9"/><path d="M10 12v.01"/><path d="M13 4.562v16.157a1 1 0 0 1-1.242.97L5 20V5.562a2 2 0 0 1 1.515-1.94l4-1A2 2 0 0 1 13 4.561Z"/></svg>Members: enter the reading room</a> <span>signed in to GitHub; a 404 means your account is not in yet (<a href="#h-access">how to join</a>)</span></p>
     </div>
   </div>
 </header>
@@ -119,6 +125,11 @@
     <h2 id="h-decks">Decks</h2>
     <p>Walk-throughs, one idea per slide.</p>
     <ul class="shelf" id="shelf-decks">
+      <li>
+        <span class="what">Welcome to The Holy Earth Foundation</span>
+        <span class="where open"><a href="https://github.com/theholyearthfoundation/.github/blob/main/decks/welcome.marp.pdf">Read the PDF</a></span>
+        <span class="note">Seven stops for a newcomer and the AI helper beside them: your first hour, five words, proposals, procedures, this room, how a change travels, how to answer.</span>
+      </li>
       <li data-paths="decks/home-base-for-kenney.marp.html decks/home-base-for-kenney.marp.pdf">
         <span class="what">Home base, for Kenney</span>
         <span class="where shut">In the members' room</span>
@@ -131,12 +142,15 @@
     <h2 id="h-procedures">Procedures</h2>
     <p>How an approved thing is done, step by step. Each one is a draft until its version is tagged.</p>
     <ul class="shelf" id="shelf-procedures">
+      <li data-paths="procedures/pdf/COM/SOP-COM-001-new-to-github-your-first-hour.pdf procedures/COM/SOP-COM-001-new-to-github-your-first-hour.md"><span class="what">New to GitHub: your first hour</span><span class="where shut">In the members' room</span><span class="note">SOP-COM-001: your own account and password, the invitation, five words, this room, a helper.</span></li>
       <li data-paths="procedures/pdf/OPS/SOP-OPS-001-how-a-change-travels.pdf procedures/OPS/SOP-OPS-001-how-a-change-travels.md"><span class="what">How a change travels</span><span class="where shut">In the members' room</span><span class="note">SOP-OPS-001: rehearsal, Promote, the live branch, the public twin.</span></li>
       <li data-paths="procedures/pdf/OPS/SOP-OPS-002-pull-requests-and-promotes.pdf procedures/OPS/SOP-OPS-002-pull-requests-and-promotes.md"><span class="what">Pull requests and Promotes</span><span class="where shut">In the members' room</span><span class="note">SOP-OPS-002: who opens, who merges, and why history is kept whole.</span></li>
+      <li data-paths="procedures/pdf/OPS/SOP-OPS-003-private-houses-everything-public-lanes-witness.pdf procedures/OPS/SOP-OPS-003-private-houses-everything-public-lanes-witness.md"><span class="what">Private houses everything, public lanes witness</span><span class="where shut">In the members' room</span><span class="note">SOP-OPS-003: how a page reaches this room, and the tripwire that reads every file first.</span></li>
       <li data-paths="procedures/pdf/IT/SOP-IT-001-vpn-dns-resolver-stalls.pdf procedures/IT/SOP-IT-001-vpn-dns-resolver-stalls.md"><span class="what">VPN and DNS resolver stalls</span><span class="where shut">In the members' room</span><span class="note">SOP-IT-001: how to tell, how to check, how to fix.</span></li>
       <li data-paths="procedures/pdf/IT/SOP-IT-002-reading-room-and-helper-access.pdf procedures/IT/SOP-IT-002-reading-room-and-helper-access.md"><span class="what">Reading room and helper access</span><span class="where shut">In the members' room</span><span class="note">SOP-IT-002: browser first, a token only if needed. How this room works.</span></li>
       <li data-paths="procedures/pdf/IT/SOP-IT-003-observer-dashboards-local-by-default.pdf procedures/IT/SOP-IT-003-observer-dashboards-local-by-default.md"><span class="what">Observer dashboards, local by default</span><span class="where shut">In the members' room</span><span class="note">SOP-IT-003: remote access only on purpose.</span></li>
       <li data-paths="procedures/pdf/GOV/SOP-GOV-001-board-reading-room-membership.pdf procedures/GOV/SOP-GOV-001-board-reading-room-membership.md"><span class="what">Board reading room membership</span><span class="where shut">In the members' room</span><span class="note">SOP-GOV-001: a closed team with Read, named by the officers.</span></li>
+      <li data-paths="procedures/pdf/GOV/SOP-GOV-002-github-collaboration.pdf procedures/GOV/SOP-GOV-002-github-collaboration.md"><span class="what">GitHub collaboration</span><span class="where shut">In the members' room</span><span class="note">SOP-GOV-002: teams decide access, issues, discussions, pull requests, Pages.</span></li>
     </ul>
     <p class="extra">Procedures marked public also appear in the foundation's <a href="https://github.com/theholyearthfoundation/ops-standard-operating-procedures-public">procedures twin on GitHub</a>.</p>
   </section>
